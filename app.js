@@ -92,5 +92,8 @@ app.get('/about-us', (req, res) => {
   app.get('/contact', (req, res) => {
     res.render('contact')
   });
+  app.get('/buisnessBook', (req, res) => {
+    res.render('buisnessBook')
+  });
 
 module.exports = app;
