@@ -8,6 +8,7 @@ const validator = require('mongoose-unique-validator');
         membershipexpirydate:Date,
         password:{type:String,required:false,default:Date.now().toString()},
         softwareshouldrun:{type:Boolean,default:true},
+        cansendsms:{type:Boolean,default:false},
     })
 
     businessbookuser.plugin(validator)
