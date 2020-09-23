@@ -1,7 +1,6 @@
 {
   "name": "ravicosoft",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -21,6 +20,17 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.6",
     "mongoose-unique-validator": "^2.0.3",
-    "multer": "^1.4.2"
-  }
+    "multer": "^1.4.2",
+    "node-helper": "^0.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attachaudhury/ravicosoftweb.git"
+  },
+  "bugs": {
+    "url": "https://github.com/attachaudhury/ravicosoftweb/issues"
+  },
+  "homepage": "https://github.com/attachaudhury/ravicosoftweb#readme",
+  "description": ""
 }

@@ -7,6 +7,8 @@ var engine = require('ejs-locals')
 var mongoose = require("mongoose")
 var user = require('./Models/user')
 
+var multer =  require('multer');
+
 var home = require('./routes/home');
 var admin = require('./routes/admin');
 var businessbookapi = require('./routes/businessbookapi');
@@ -74,26 +76,39 @@ app.use('/home', home);
 app.use('/businessbookapi', businessbookapi);
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('user/index')
 });
 
 app.get('/index', (req, res) => {
-    res.render('index')
+    res.render('user/index')
   });
 app.get('/about-us', (req, res) => {
-    res.render('about-us')
+    res.render('user/about-us')
   });
   app.get('/service', (req, res) => {
-    res.render('service')
+    res.render('user/service')
   });
   app.get('/product', (req, res) => {
-    res.render('product')
+    res.render('user/product')
   });
   app.get('/contact', (req, res) => {
-    res.render('contact')
+    res.render('user/contact')
   });
-  app.get('/buisnessBook', (req, res) => {
-    res.render('buisnessBook')
+  app.get('/product/buisnessBook', (req, res) => {
+    res.render('user/buisnessBook')
   });
+
+  //admin panel routes
+  
+  app.get('/admin/home', (req, res) => {
+    res.render('admin/index')
+  });
+  app.get('/admin/Buisnessbook', (req, res) => {
+    res.render('admin/Buisnessbook')
+  });
+  app.get('/admin/login', (req, res) => {
+    res.render('admin/login')
+  });
+
 
 module.exports = app;
