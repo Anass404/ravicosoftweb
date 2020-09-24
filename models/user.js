@@ -34,4 +34,5 @@ const user = mongoose.Schema({
     smsplanexpirydate:Date,
     smsplansentsms:{type:String},
 })
+mongoose.models = {}
 module.exports = mongoose.model('user',user,'user');

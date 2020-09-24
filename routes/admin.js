@@ -1,17 +1,56 @@
 var express = require('express');
 var router = express.Router();
+var model = require("../models/user")
 
 
 router.get("/", async (req, res, next) => {
   res.redirect('/admin/index')
 })
 router.get("/index", async (req, res, next) => {
-  var loggedinuser = await user.findById(req.user);
-  var listings = await listing.find({}).count();
-  var projects = await project.find({}).count();
-  var users = await user.find({}).count();
-
-  res.render('./admin/index', { data: { listings: listings, projects: projects, users: users }, loggedinuser: loggedinuser });
+  var loggedinuser = await model.findById(req.user);
+  res.render('./admin/index', { loggedinuser: loggedinuser });
 })
+router.get("/businessbook", async (req, res, next) => {
+  var loggedinuser = await model.findById(req.user);
+  res.render('./admin/businessbook', { loggedinuser: loggedinuser });
+})
+
+router.get("/users", async (req, res, next) => {
+  var loggedinuser = await model.findById(req.user);
+  var users = await model.find({});
+  res.render('./admin/users', { loggedinuser: loggedinuser,model:users });
+})
+router.get("/userview", async (req, res, next) => {
+  var user;
+  if(req.query.id)
+  {
+    user = await model.findById(req.query.id)
+  }
+  else{
+    user = {_id:'',username:'',password:''}
+  }
+  var loggedinuser = await model.findById(req.user);
+  res.render('./admin/userview', { loggedinuser: loggedinuser,model:user });
+})
+
+router.post("/userview", async (req, res, next) => {
+  var user;
+  var userid = req.body._id || "";
+
+  if(userid!="")
+  {
+    var updateobject = {...req.body};
+    delete updateobject._id;
+    user = await model.findByIdAndUpdate(userid,updateobject,{new:true});
+  }
+  else{
+    var updateobject = {...req.body};
+    delete updateobject._id;
+    user = await model.create(updateobject);
+  }
+  var loggedinuser = await model.findById(req.user);
+  res.render('./admin/userview', { loggedinuser: loggedinuser,model:user });
+})
+
 
 module.exports = router;

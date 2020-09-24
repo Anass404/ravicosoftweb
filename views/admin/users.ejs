@@ -1,0 +1,48 @@
+<% layout('./layout') -%>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="row">
+		<ol class="breadcrumb">
+			<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+			<li class="active">Dashboard</li>
+		</ol>
+	</div>
+	<!--/.row-->
+
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">User</h1>
+			<div class="float-right">
+				<a href="/admin/userview" class="btn btn-sm btm-success">Create User</a>
+			</div>
+		</div>
+	</div>
+	<!--/.row-->
+	<div class="row">
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Sr</th>
+					<th scope="col">Username</th>
+					<th scope="col">Email</th>
+					<th scope="col">Role</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i < model.length; i++) { %>
+					<tr>
+						<td><%= i+1 %></td>
+					  <td><%= model[i].username %></td>
+					  <td><%= model[i].email %></td>
+					  <td><%= model[i].role %></td>
+					  <td style="cursor: pointer;">
+						 <a href="/admin/userview?id=<%= model[i]._id%>"><i class="fa fa-edit"></i></a>
+					  </td>
+					</tr>
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+</div>

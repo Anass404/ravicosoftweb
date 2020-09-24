@@ -100,15 +100,6 @@ app.get('/about-us', (req, res) => {
 
   //admin panel routes
   
-  app.get('/admin/home', (req, res) => {
-    res.render('admin/index')
-  });
-  app.get('/admin/Buisnessbook', (req, res) => {
-    res.render('admin/Buisnessbook')
-  });
-  app.get('/admin/login', (req, res) => {
-    res.render('admin/login')
-  });
 
 
 module.exports = app;
