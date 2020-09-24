@@ -1,9 +1,8 @@
 var express = require('express');
-const { delete } = require('mongoose/lib/helpers/populate/leanPopulateMap');
 var router = express.Router();
 
 const isauth = require('../middleware/isauth');
-const model = require('../models/businessbookuser');
+const model = require('../models/user');
 
 router.post("/updatelocalsetting", async (req, res) => {
     var resp = { status: "failed", data: "canot proceed" };
@@ -16,11 +15,11 @@ router.post("/updatelocalsetting", async (req, res) => {
         else {
             var o = {
                 createddate: new Date(),
-                canrunsoftware: true,
-                cansendsms: false,
-                membershiptype: 'free',
                 username: Date.now().toString(),
-                password: Date.now().toString()
+                password: Date.now().toString(),
+                businessbookmembershipplan:"Package 1",
+                businessbookcanrun:true,
+                smsplan:"none",
             }
             resu = await model.create(o);
         }
@@ -34,8 +33,8 @@ router.post("/updatelocalsetting", async (req, res) => {
     res.send(resp);
 });
 
-router.post("/updatelocalsetting", async (req, res) => {
-    var resp = { status: "failed", data: "canot proceed" };
+router.post("/updateonlinesetting", async (req, res) => {
+    var resp = { status: "failed", data: "cannot proceed" };
     try {
         var reqbody = {...req.body};
         console.log(reqbody);
