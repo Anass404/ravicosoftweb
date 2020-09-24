@@ -1,4 +1,5 @@
 var express = require('express');
+const { format } = require('express/lib/response');
 var router = express.Router();
 var model = require("../models/user")
 
@@ -36,7 +37,6 @@ router.get("/userview", async (req, res, next) => {
 router.post("/userview", async (req, res, next) => {
   var user;
   var userid = req.body._id || "";
-
   if(userid!="")
   {
     var updateobject = {...req.body};
