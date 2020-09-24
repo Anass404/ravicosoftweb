@@ -5,9 +5,9 @@ const validator = require('mongoose-unique-validator');
         createddate:{type:Date,required:false,default:new Date()},
         membershiptype:{type:String,default:'free'},
         membershipexpirydate:Date,
-        username:{type:String,required:true,default:Date.now().toString()},
+        username:{type:String,unique:true,required:true,default:Date.now().toString()},
         password:{type:String,required:false,default:Date.now().toString()},
-        softwareshouldrun:{type:Boolean,default:true},
+        canrunsoftware:{type:Boolean,default:true},
         cansendsms:{type:Boolean,default:false},
     })
 
