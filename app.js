@@ -94,11 +94,14 @@ app.get('/about-us', (req, res) => {
   app.get('/contact', (req, res) => {
     res.render('user/contact')
   });
-  app.get('/product/buisnessBook', (req, res) => {
-    res.render('user/buisnessBook')
+  app.get('/product/businessbook', (req, res) => {
+    res.render('user/businessbook')
+  });
+  app.get('/sms', (req, res) => {
+    res.render('user/sms')
   });
 
-  //admin panel routes
+  
   
 
 
