@@ -25,11 +25,11 @@ const user = mongoose.Schema({
 
 
     //business book fields
-    businessbookmembershipplan:{type:String,default:'Package 1'},
+    businessbookmembershipplan:{type:String,default:'Package 1'}, // values are Package 1,Package 2,Package 3
     businessbookmembershipexpirydate:Date,
     businessbookcanrun:{type:Boolean,default:true},
     //sms plan fields
-    smsplan:{type:String,default:'none'},
+    smsplan:{type:String,default:'none'},  // values are none,Package 1,Package 2,Package 3,Package 4
     smsplanbrandname:{type:String},
     smsplanexpirydate:Date,
     smsplansentsms:{type:String},

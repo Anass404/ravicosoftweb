@@ -51,4 +51,11 @@ router.post("/updateonlinesetting", async (req, res) => {
     res.send(resp);
 });
 
+router.post("/smsfrombusinessbook", async (req, res) => {
+    console.log('/smsfrombusinessbook')
+    console.log(req.body)
+    var resp = { status: "success", data: "sms sended" };
+    res.json(resp)
+});
+
 module.exports = router;
