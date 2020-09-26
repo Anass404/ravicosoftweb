@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const user = mongoose.Schema({
-    activestatus:{type:String,required:false,default:'active'},
+    activestatus:{type:String,required:false,default:'active'}, //active,deactive
     createddate:{type:Date,required:false,default:new Date()},
     designation:{type:String,required:false},
     description:{type:String,required:false},

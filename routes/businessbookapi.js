@@ -20,6 +20,7 @@ router.post("/updatelocalsetting", async (req, res) => {
                 businessbookmembershipplan:"Package 1",
                 businessbookcanrun:true,
                 smsplan:"none",
+                role:'user',
             }
             resu = await model.create(o);
         }
