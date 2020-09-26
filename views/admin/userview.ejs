@@ -17,16 +17,35 @@
 	</div>
 	<!--/.row-->
 	<div class="row">
-		<form method="post">
+		<form method="post" id= "userform">
 			<input type="hidden" name="_id" value="<%= model._id%>">
-			<input type="text" placeholder="username" name="username" value="<%= model.username%>">
-			<input type="text" placeholder="password" name="password" value="<%= model.password%>">
+			<input type="text" placeholder="Full Name" name="fullname" value="<%= model.fullname %>">
+			<input type="text" placeholder="User Name" name="username" value="<%= model.username %>">
+			<input type="text" placeholder="Password" name="password" value="<%= model.password %>">
+			<input type="email" placeholder="Email" name="email" value="<%= model.email%>">
+			
+			<select name="businessbookmembershipplan" required >
+				<option value="">package</option>
+				<option value="package_1" <%= (model.businessbookmembershipplan=="Package1")? 'selected':'' %>>package 1</option>
+				<option value="package_2" <%= (model.businessbookmembershipplan=="Package2")? 'selected':'' %>>package 2</option>
+				<option value="package_3" <%= (model.businessbookmembershipplan=="Package3")? 'selected':'' %>>package 3</option>
+			</select>
+
+			<select name="smsplan" required >
+				<option value="">SMS</option>
+				<option value="smsplan1" <%= (model.smsplan=="smsplan1")? 'selected':'' %>>Package 1</option>
+				<option value="smsplan2" <%= (model.smsplan=="smsplan2")? 'selected':'' %>>Package 2</option>
+				<option value="smsplan3" <%= (model.smsplan=="smsplan3")? 'selected':'' %>>package 3</option>
+				<option value="none" <%= (model.smspackage=="none")? 'selected':'' %>>None</option>
+
+			</select>
+
 			<select name="role" required >
 				<option value="">Role</option>
 				<option value="admin" <%= (model.role=="admin")? 'selected':'' %>>admin</option>
 				<option value="user" <%= (model.role=="user")? 'selected':'' %>>user</option>
 			 </select>
-			<button type="submit">Save</button>
+			<button type="submit" >Save</button>
 		</form>
 	</div>
 </div>

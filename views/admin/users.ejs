@@ -25,8 +25,11 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Sr</th>
+					<th scope="col">Full Name</th>
 					<th scope="col">Username</th>
 					<th scope="col">Email</th>
+					<th scope="col">Busisness Book</th>
+					<th scope="col">SMS</th>
 					<th scope="col">Role</th>
 					<th scope="col">Action</th>
 				</tr>
@@ -35,8 +38,11 @@
 				<% for(var i=0; i < model.length; i++) { %>
 					<tr>
 						<td><%= i+1 %></td>
+					  <td><%= model[i].fullname %></td>
 					  <td><%= model[i].username %></td>
 					  <td><%= model[i].email %></td>
+					  <td><%= model[i].businessbookmembershipplan %></td>
+					  <td><%= model[i].smsplan %></td>
 					  <td><%= model[i].role %></td>
 					  <td style="cursor: pointer;">
 						 <a href="/admin/userview?id=<%= model[i]._id%>"><i class="fa fa-edit"></i></a>
