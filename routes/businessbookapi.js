@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-const isauth = require('../middleware/isauth');
 const model = require('../models/user');
 
 router.post("/updatelocalsetting", async (req, res) => {

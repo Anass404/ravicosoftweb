@@ -9,6 +9,7 @@ var user = require('./Models/user')
 
 var multer =  require('multer');
 
+var auth = require('./routes/auth');
 var home = require('./routes/home');
 var admin = require('./routes/admin');
 var businessbookapi = require('./routes/businessbookapi');
@@ -71,38 +72,12 @@ async function dbsetting() {
   }
 }
 
+app.use('/auth', auth);
 app.use('/admin', admin);
 app.use('/home', home);
 app.use('/businessbookapi', businessbookapi);
 
 app.get('/', (req, res) => {
-  res.render('user/index')
+  res.redirect("/home/index")
 });
-
-app.get('/index', (req, res) => {
-    res.render('user/index')
-  });
-app.get('/about-us', (req, res) => {
-    res.render('user/about-us')
-  });
-  app.get('/service', (req, res) => {
-    res.render('user/service')
-  });
-  app.get('/product', (req, res) => {
-    res.render('user/product')
-  });
-  app.get('/contact', (req, res) => {
-    res.render('user/contact')
-  });
-  app.get('/product/businessbook', (req, res) => {
-    res.render('user/businessbook')
-  });
-  app.get('/sms', (req, res) => {
-    res.render('user/sms')
-  });
-
-  
-  
-
-
 module.exports = app;

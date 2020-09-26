@@ -1,13 +1,15 @@
 var express = require('express');
 const { format } = require('express/lib/response');
 var router = express.Router();
-var model = require("../models/user")
+var model = require("../models/user");
+var auth = require("../middleware/auth");
+var authorize = require("../middleware/authorize");
 
 
-router.get("/", async (req, res, next) => {
+router.get("/",auth,authorize(["admin"]), async (req, res, next) => {
   res.redirect('/admin/index')
 })
-router.get("/index", async (req, res, next) => {
+router.get("/index",auth,authorize(["admin"]), async (req, res, next) => {
   var loggedinuser = await model.findById(req.user);
   res.render('./admin/index', { loggedinuser: loggedinuser });
 })
