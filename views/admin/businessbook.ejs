@@ -62,8 +62,8 @@
 		</div><!--/.row-->
 		
 		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">User</h1>
+			<div class="col-lg-12 ">
+				<h3 class="page-header">Business Book User</h3>
 			</div>
 		</div><!--/.row-->
 		<div class="row">
@@ -77,29 +77,32 @@
       <th scope="col">Mobile No.</th>
       <th scope="col">Membership</th>
       <th scope="col">Expiry Date</th>
-      <th scope="col">status</th>
-      
-	  
-
+	  <th scope="col">status</th>
+	  <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>A@gmail.com</td>
-      <td>ASd</td>
-      <td>ASd</td>  
-      <td>asd</td>
-      <td>25/4/2020</td>     
-      <td>
-      	<label class="switch">
-		<input type="checkbox">
-		<span class="slider round"></span>
-		</label>
-      </td>
-    </tr>
-    
+	<% for(var i=0; i < model.length; i++) { %>
+		<tr>
+			<td><%= i+1 %></td>
+		  <td><%= model[i].username %></td>
+		  <td><%= model[i].email %></td>
+		  <td><%= model[i].address %></td>
+		  <td><%= model[i].email %></td>
+		  <td><%= model[i].mobile %></td>
+		  <td><%= model[i].membership %></td>
+		  <td><%= model[i].expiry %></td>
+		  <td>
+			<label class="switch">
+				<input type="checkbox">
+				<span class="slider round"></span>
+			</label>
+		</td>
+		<td style="cursor: pointer;">
+			<a href=""><i class="fa fa-edit"></i></a>
+		 </td>
+		</tr>
+	<%}%>  
   </tbody>
 </table>
 		</div>

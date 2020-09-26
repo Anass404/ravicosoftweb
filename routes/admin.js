@@ -28,7 +28,7 @@ router.get("/userview", async (req, res, next) => {
     user = await model.findById(req.query.id)
   }
   else{
-    user = {_id:'',username:'',password:''}
+    user = {_id:'',fullname:'',username:'',email:'',password:''}
   }
   var loggedinuser = await model.findById(req.user);
   res.render('./admin/userview', { loggedinuser: loggedinuser,model:user });
