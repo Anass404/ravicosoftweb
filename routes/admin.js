@@ -23,6 +23,9 @@ router.get("/users", async (req, res, next) => {
   var users = await model.find({});
   res.render('./admin/users', { loggedinuser: loggedinuser,model:users });
 })
+router.get('/login', (req, res) => {
+  res.render('./admin/login')
+});
 router.get("/userview", async (req, res, next) => {
   var user;
   if(req.query.id)
