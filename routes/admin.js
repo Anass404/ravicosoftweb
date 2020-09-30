@@ -13,10 +13,10 @@ router.get("/index",auth,authorize(["admin"]), async (req, res, next) => {
   var loggedinuser = await model.findById(req.user);
   res.render('./admin/index', { loggedinuser: loggedinuser });
 })
-router.get("/businessbook", async (req, res, next) => {
-  var loggedinuser = await model.findById(req.user);
-  res.render('./admin/businessbook', { loggedinuser: loggedinuser });
-})
+// router.get("/businessbook", async (req, res, next) => {
+//   var loggedinuser = await model.findById(req.user);
+//   res.render('./admin/businessbook', { loggedinuser: loggedinuser });
+// })
 
 router.get("/users", async (req, res, next) => {
   var loggedinuser = await model.findById(req.user);

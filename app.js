@@ -1,17 +1,22 @@
 
 // #region variables 
 var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 var engine = require('ejs-locals')
 var mongoose = require("mongoose")
 var user = require('./Models/user')
+app.use(express.static('public'));
 
 var multer =  require('multer');
 
 var auth = require('./routes/auth');
 var home = require('./routes/home');
 var admin = require('./routes/admin');
+var admin = require('./routes/admin');
+var user = require('./routes/user');
+
 var businessbookapi = require('./routes/businessbookapi');
 
 
@@ -75,9 +80,11 @@ async function dbsetting() {
 app.use('/auth', auth);
 app.use('/admin', admin);
 app.use('/home', home);
+app.use('/user', user);
 app.use('/businessbookapi', businessbookapi);
 
 app.get('/', (req, res) => {
   res.redirect("/home/index")
 });
+
 module.exports = app;
