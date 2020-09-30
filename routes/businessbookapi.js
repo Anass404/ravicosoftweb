@@ -52,10 +52,24 @@ router.post("/updateonlinesetting", async (req, res) => {
 });
 
 router.post("/smsfrombusinessbook", async (req, res) => {
-    console.log('/smsfrombusinessbook')
-    console.log(req.body)
-    var resp = { status: "success", data: "sms sended" };
-    res.json(resp)
+    
+    
+    try
+    {
+        reqbody ={...req.body};
+        if(reqbody.userid==undefined||reqbody.userid=='')
+        {
+            res.json({status:"failed",data:"user not valid"});
+        }
+        else{
+            res.json({status:"success",data:"message send"});
+        }
+
+    }catch(ex)
+    {
+        res.json({status:"failed",data:"sms not send",ex:ex.message})
+    }
+    
 });
 
 module.exports = router;
