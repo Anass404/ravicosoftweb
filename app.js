@@ -87,4 +87,10 @@ app.get('/', (req, res) => {
   res.redirect("/home/index")
 });
 
+app.get('/admin/users',function(req,res)
+{
+  res.render('admin/users');
+  console.log("this is render page");
+})
+
 module.exports = app;

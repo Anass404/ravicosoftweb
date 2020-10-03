@@ -37,6 +37,7 @@ router.get("/userview", async (req, res, next) => {
   }
   var loggedinuser = await model.findById(req.user);
   res.render('./admin/userview', { loggedinuser: loggedinuser,model:user });
+  res.redirect("/admin/users")
 })
 
 router.post("/userview", async (req, res, next) => {
@@ -47,14 +48,17 @@ router.post("/userview", async (req, res, next) => {
     var updateobject = {...req.body};
     delete updateobject._id;
     user = await model.findByIdAndUpdate(userid,updateobject,{new:true});
+    res.redirect('/admin/users');
   }
   else{
     var updateobject = {...req.body};
     delete updateobject._id;
     user = await model.create(updateobject);
+    
   }
   var loggedinuser = await model.findById(req.user);
-  res.render('./admin/userview', { loggedinuser: loggedinuser,model:user });
+  res.redirect('/admin/users');
+  
 })
 
 
