@@ -2281,11 +2281,11 @@ i:before {
 .footer_widget_area {
   background: url(../img/footer-bg.jpg) no-repeat scroll center center;
   background-size: cover;
-  padding: 130px 0px 115px 0px;
+  padding: 27px 0px 54px 0px;
 }
 
 .f_title {
-  padding-bottom: 45px;
+  padding-bottom: 30px;
 }
 
 .f_title h3 {
@@ -2308,7 +2308,7 @@ i:before {
   line-height: 28px;
   color: #fff;
   font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  font-weight: 200;
 }
 
 .f_insta_widget ul {
@@ -2393,12 +2393,13 @@ i:before {
 .footer_copyright {
   overflow: hidden;
   background: #11173b;
-  padding: 35px 0px;
+  padding: 7px 0px;
 }
 
-.footer_copyright .float-sm-left h5 {
+.footer_copyright .float-sm-center h5 {
+  text-align: center;
   font-size: 14px;
-  color: #2a2f56;
+  color: #fcfcfc;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   font-weight: 500;

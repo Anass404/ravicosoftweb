@@ -22,8 +22,8 @@ router.get('/product', (req, res) => {
 router.get('/contact', (req, res) => {
   res.render('./home/contact')
 });
-router.get('/product/buisnessbook', (req, res) => {
-  res.render('./home/buisnessbook')
+router.get('/product/businessbook', (req, res) => {
+  res.render('./home/businessbook')
 });
 router.get('/sms', (req, res) => {
   res.render('./home/sms')
