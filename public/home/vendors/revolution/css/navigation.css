@@ -565,7 +565,7 @@ website:    http://www.themepunch.com
   visibility:visible;
 }
         
- .erinyen.tp-rightarrow .tp-title-wrap { 
+ /* .erinyen.tp-rightarrow .tp-title-wrap { 
    right:0px;
    margin-right:0px;margin-left:0px;
    -webkit-transform-origin:100% 50%;
@@ -578,7 +578,8 @@ website:    http://www.themepunch.com
 .erinyen.tp-leftarrow .tp-title-wrap { 
    padding-left:20px;
   padding-right:10px;
-}
+  display: none;
+} */
 
 .erinyen .tp-arr-titleholder {
   letter-spacing: 3px;

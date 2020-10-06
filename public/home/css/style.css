@@ -306,8 +306,8 @@ i:before {
 }
 
 .main_menu_area.navbar_fixed {
-  position: fixed;
-  width: 100%;
+  /* position: fixed; */
+  width: 100%; 
   top: -70px;
   left: 0;
   right: 0;
@@ -322,11 +322,11 @@ i:before {
   transition: transform 500ms ease, background 500ms ease, -webkit-transform 500ms ease;
   -webkit-transition: transform 500ms ease, background 500ms ease;
   z-index: 999999;
-}
-
+} 
+ 
 .main_menu_area.navbar_fixed .navbar .navbar-nav li a {
   line-height: 70px;
-}
+} 
 
 /* End Main Menu Area css
 ============================================================================================ */
@@ -448,7 +448,7 @@ i:before {
   color: #fff;
 }
 
-.main_slider_area .rev_slider .tp-leftarrow {
+/* .main_slider_area .rev_slider .tp-leftarrow {
   border-bottom-right-radius: 60px;
   border-top-right-radius: 60px;
   border-left: 0px;
@@ -458,7 +458,7 @@ i:before {
   border-bottom-left-radius: 60px;
   border-top-left-radius: 60px;
   border-right: 0px;
-}
+} */
 
 /* End Slider css
 ============================================================================================ */
