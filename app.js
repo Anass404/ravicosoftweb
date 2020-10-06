@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 var engine = require('ejs-locals')
 var mongoose = require("mongoose")
-var user = require('./Models/user')
+var user = require('./models/user')
 app.use(express.static('public'));
 
 var multer =  require('multer');

@@ -417,6 +417,7 @@ i:before {
   width: 10px;
   background: #b3adff;
   border: 5px solid #fff;
+  display: none;
 }
 
 .main_slider_area .rev_slider .tp-bullets .tp-bullet.selected {
