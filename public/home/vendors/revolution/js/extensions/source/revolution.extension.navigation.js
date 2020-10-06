@@ -815,11 +815,11 @@ var initArrows = function(container,o,opt) {
 	
 	// ADD LEFT AND RIGHT ARROWS
 	if (container.find('.tp-leftarrow.tparrows').length===0) 
-		container.append('<div class="tp-leftarrow tparrows '+o.style+' '+o.left.style+'">'+o.tmp+'</div>');
-	if (container.find('.tp-rightarrow.tparrows').length===0) 
-		container.append('<div class="tp-rightarrow tparrows '+o.style+' '+o.right.style+'">'+o.tmp+'</div>');	
-	var la = container.find('.tp-leftarrow.tparrows'),
-		ra = container.find('.tp-rightarrow.tparrows');
+		container.append('<div class="  '+o.style+' '+o.left.style+'">'+o.tmp+'</div>');
+	if (container.find('.tp-rightarrow.').length===0) 
+		container.append('<div class="  '+o.style+' '+o.right.style+'">'+o.tmp+'</div>');	
+	var la = container.find('.tp-leftarrow.'),
+		ra = container.find('.tp-rightarrow.');
 	if (o.rtl) {
 		// CLICK HANDLINGS ON LEFT AND RIGHT ARROWS
 		la.click(function() { opt.sc_indicator="arrow"; opt.sc_indicator_dir = 0;container.revnext();});
