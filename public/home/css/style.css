@@ -115,7 +115,7 @@ i:before {
 ============================================================================================ */
 .c_title {
   text-align: center;
-  padding-bottom: 40px;
+  padding-bottom: 19px;
 }
 
 .c_title img {
@@ -139,7 +139,7 @@ i:before {
 }
 
 .l_title {
-  padding-bottom: 55px;
+  padding-bottom: 21px;
 }
 
 .l_title img {
@@ -156,8 +156,8 @@ i:before {
 }
 
 .l_title h2 {
-  font-size: 48px;
-  color: #0b1033;
+  font-size: 27px;
+  color: #8089cc;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
@@ -570,7 +570,7 @@ i:before {
 
 .feature_item {
   text-align: center;
-  padding: 40px 0px 60px 0px;
+  padding: 0px 0px 30px 0px;
   -webkit-transition: all 400ms linear 0s;
   -o-transition: all 400ms linear 0s;
   transition: all 400ms linear 0s;
@@ -777,12 +777,13 @@ i:before {
 }
 
 .challange_text_inner p {
+  margin-right: -8rem;
   font-size: 15px;
   line-height: 28px;
   color: #7c8d93;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  padding-right: 25px;
+ 
 }
 
 .challange_text_inner .c_video {
@@ -807,10 +808,10 @@ i:before {
 }
 
 .challange_img .challange_img_inner {
-  -ms-flex-item-align: center;
-  align-self: center;
-  -webkit-box-shadow: 0px 27px 68px 0px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 27px 68px 0px rgba(0, 0, 0, 0.4);
+  -ms-flex-item-align: right;
+  align-self: right;
+  /* -webkit-box-shadow: 0px 27px 68px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 27px 68px 0px rgba(0, 0, 0, 0.4); */
 }
 
 /* End Challange Area css
@@ -1898,6 +1899,9 @@ i:before {
 .blog_text .more_btn {
   margin-top: 45px;
 }
+.blog_text .more_btn {
+  margin-top: -23px;
+}
 
 .blog_main_item {
   -webkit-box-shadow: 0px 14px 38px 0px rgba(0, 0, 0, 0.11);
@@ -2300,7 +2304,7 @@ i:before {
 }
 
 .f_about_widget img {
-  padding-bottom: 55px;
+  padding-bottom: 30px;
 }
 
 .f_about_widget p {
@@ -2401,7 +2405,7 @@ i:before {
   font-size: 14px;
   color: #fcfcfc;
   font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
+  
   font-weight: 500;
   line-height: 29px;
 }
