@@ -338,11 +338,11 @@ i:before {
   position: relative;
   z-index: 3;
   overflow: hidden;
+  margin-bottom: 4em;
 }
 
 .banner_area:before {
   content: "";
-  background: url(../img/banner/banner-bg.png) no-repeat scroll center right;
   position: absolute;
   right: 0px;
   top: 0px;
@@ -2395,8 +2395,13 @@ i:before {
 }
 
 .footer_copyright {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   overflow: hidden;
-  background: #11173b;
+  background: #727797;
   padding: 7px 0px;
 }
 

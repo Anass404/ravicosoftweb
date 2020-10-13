@@ -22,7 +22,7 @@ router.get('/product', (req, res) => {
 router.get('/contact', (req, res) => {
   res.render('./home/contact')
 });
-router.get('/product/businessbook', (req, res) => {
+router.get('/businessbook', (req, res) => {
   res.render('./home/businessbook')
 });
 router.get('/sms', (req, res) => {
