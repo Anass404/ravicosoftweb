@@ -4,6 +4,22 @@
     .demo {
         padding: 100px 0;
     }
+    .endp{
+        color: red;
+        font-size: 30px;
+        /* border: 2px solid green; */
+        display: block;
+        /* position: absolute; */
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        margin-top: 30px;
+        font-weight: bold;
+        float: none;
+        line-height: 40px;
+        line-height: 40px;
+    }
 
     .heading-title {
         margin-bottom: 100px;
@@ -42,7 +58,7 @@
 
     .pricingTable .price-value {
         display: block;
-        font-size: 64px;
+        font-size: 35px;
         font-weight: 700;
         padding-bottom: 25px;
     }
@@ -113,6 +129,10 @@
     .pricingTable.pink .btn-block {
         background: #ed687c;
     }
+    .pricingTable.pink .pricingTable-header2,
+    .pricingTable.pink .btn-block {
+        background: #eb8181;
+    }
 
     .pricingTable.orange .pricingTable-header,
     .pricingTable.orange .btn-block {
@@ -131,12 +151,20 @@
         background: #e6e6e6;
         color: #939393;
     }
-
+    
     @media screen and (max-width: 990px) {
         .pricingTable {
             margin-bottom: 20px;
         }
     }
+    #btntut{
+        border: 1px solid green;
+        /* background-color: transparent; */
+        margin-top: 4px;
+        width: 100%;
+        
+    }
+    
 </style>
 
 <section class="banner_area">
@@ -166,7 +194,8 @@
 
         </div>
         <div class="col-md-3">
-            <a class="btn btn-outline-success">Download Free Version</a>
+            <a class="btn btn-outline-success" id="btntut">Download Free Version</a>
+            <a class="btn btn-outline-success" id="btntut">View Tutorial</a>
         </div>
     </div>
 
@@ -177,7 +206,7 @@
         <div class="demo ">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 pl-5 ml-5">
+                    <div class="col-md-3 col-sm-6 ">
                         <div class="pricingTable blue">
                             <div class="pricingTable-header">
                                 <span class="heading">
@@ -192,54 +221,79 @@
                                     <li> Full POS <i class="fa fa-check"></i></li>
                                     <li> Branded Sms <i class="fa fa-check"></i></li>
                                     <li> Self Support<i class="fa fa-check"></i></li>
+                                    <li> Paid Maintance<i class="fa fa-check"></i></li>
                                 </ul>
                             </div><!-- /  CONTENT BOX-->
 
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6 pl-5 ml-5">
+                    <div class="col-md-3 col-sm-6 ">
                         <div class="pricingTable pink">
                             <div class="pricingTable-header">
                                 <span class="heading">
                                     <h3>Package 2</h3>
                                     <br>
                                 </span>
-                                <span class="price-value">$10 </span>
+                                <span class="price-value">PKR 1,000 </span>
                                 <span>monthly</span>
                             </div>
                             <div class="pricingContent">
                                 <ul>
                                     <li> All included in Package 1<i class="fa fa-check"></i></li>
+                                    <li> Call and Email <i class="fa fa-check"></i></li>
+                                    <li> Free Maintance<i class="fa fa-check"></i></li>
+                                    <!-- <li> Call & Email Support<i class="fa fa-check"></i></li> -->
+                                </ul>
+                            </div><!-- /  CONTENT BOX-->
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-6 ">
+                        <div class="pricingTable pink">
+                            <div class="pricingTable-header2">
+                                <span class="heading">
+                                    <h3>Package 3</h3>
+                                    <br>
+                                </span>
+                                <span class="price-value">PKR 2,000 </span>
+                                <span>monthly</span>
+                            </div>
+                            <div class="pricingContent">
+                                <ul>
+                                    <li> All included in Package 2<i class="fa fa-check"></i></li>
                                     <li> Ledger <i class="fa fa-check"></i></li>
-                                    <li> online Backup<i class="fa fa-check"></i></li>
-                                    <li> Call & Email Support<i class="fa fa-check"></i></li>
+                                    <!-- <li> online Backup<i class="fa fa-check"></i></li> -->
+                                    <!-- <li> Call & Email Support<i class="fa fa-check"></i></li> -->
                                 </ul>
                             </div><!-- /  CONTENT BOX-->
 
                         </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6 pl-5 ml-5">
+                    <div class="col-md-3 col-sm-6 ">
                         <div class="pricingTable orange">
                             <div class="pricingTable-header">
                                 <span class="heading">
-                                    <h3>Package 3</h3>
+                                    <h3>Package 4</h3>
                                     <br>
                                 </span>
-                                <span class="price-value">$20 </span>
+                                <span class="price-value">PKR 5,000 </span>
                                 <span>monthly</span>
                             </div>
                             <div class="pricingContent">
                                 <ul>
-                                    <li> All included In package 2 <i class="fa fa-check"></i></li>
+                                    <li> All included In package 3 <i class="fa fa-check"></i></li>
                                     <li> Online Reports<i class="fa fa-check"></i></li>
+                                    <li> On Spot Services<i class="fa fa-check"></i></li>
                                 </ul>
                             </div><!-- /  CONTENT BOX-->
 
                         </div>
                     </div>
                 </div>
+                <div class="endp"> <p>Brand Name Registration Charges PKR 1,000</p></div>
             </div>
         </div>
 
