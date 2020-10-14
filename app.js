@@ -5,29 +5,29 @@ var app = express();
 var bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 var engine = require('ejs-locals')
-var mongoose = require("mongoose")
-var user = require('./models/User')
+
 app.use(express.static('public'));
 
 
 var auth = require('./routes/auth');
+var admin = require('./routes/admin');
 var home = require('./routes/home');
-var admin = require('./routes/admin');
-var admin = require('./routes/admin');
-var user = require('./routes/user');
-
+var userroute = require('./routes/user');
 var businessbookapi = require('./routes/businessbookapi');
 
 
+var mongoose = require("mongoose")
+var user = require('./models/User')
+mongoose.connect('mongodb://localhost:27017/ravicosoft', {
+  useNewUrlParser: true,useUnifiedTopology: true
+});
 
 var app = express();
 app.engine('ejs', engine);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-mongoose.connect('mongodb://localhost:27017/ravicosoft', {
-  useNewUrlParser: true,useUnifiedTopology: true
-});
+
 app.use(bodyParser.json({
   limit: '100mb'
 }))
@@ -79,17 +79,12 @@ async function dbsetting() {
 app.use('/auth', auth);
 app.use('/admin', admin);
 app.use('/home', home);
-app.use('/user', user);
+app.use('/user', userroute);
 app.use('/businessbookapi', businessbookapi);
 
 app.get('/', (req, res) => {
   res.redirect("/home/index")
 });
 
-app.get('/admin/users',function(req,res)
-{
-  res.render('admin/users');
-  console.log("this is render page");
-})
 
 module.exports = app;
