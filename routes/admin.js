@@ -1,7 +1,6 @@
 var express = require('express');
-const { format } = require('express/lib/response');
 var router = express.Router();
-var model = require("../models/user");
+var model = require("../models/User");
 var auth = require("../middleware/auth");
 var authorize = require("../middleware/authorize");
 

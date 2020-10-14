@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const model = require('../models/user');
+const model = require('../models/User');
 
 router.post("/updatelocalsetting", async (req, res) => {
     var resp = { status: "failed", data: "canot proceed" };

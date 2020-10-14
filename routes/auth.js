@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var model = require("../models/user")
+var model = require("../models/User")
 
 
 router.post('/signin', async (req, res) => {
