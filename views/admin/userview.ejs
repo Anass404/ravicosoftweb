@@ -2,7 +2,7 @@
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Create/Edit User</h1>
+			<h3 class="page-header">Create/Edit User</h3>
 		</div>
 	</div>
 
@@ -42,7 +42,7 @@
 
 						<div class="form-group col-md-3">
 							<label>createddate</label>
-							<input type="text" class="form-control" name="createddate" value="<%= model.createddate %>">
+							<input type="text" class="form-control" value="<%= model.createddate %>">
 						</div>
 
 						<div class="form-group col-md-3">
@@ -57,6 +57,78 @@
 
 
 
+						<div class="form-group col-md-3">
+							<label>emailverified  (yes/no/'')</label>
+							<input type="text" class="form-control" name="emailverified" value="<%= model.emailverified || ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Address</label>
+							<input type="text" class="form-control" name="address" value="<%= model.address || ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>City</label>
+							<input type="text" class="form-control" name="city" value="<%= model.city || ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Country</label>
+							<input type="text" class="form-control" name="country" value="<%= model.country || ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Currency</label>
+							<input type="text" class="form-control" name="currency" value="<%= model.currency || ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>CNIC/Passport</label>
+							<input type="text" class="form-control" name="cnicpassport" value="<%= model.cnicpassport || ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Designation</label>
+							<input type="text" class="form-control" name="designation" value="<%= model.designation|| ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Description</label>
+							<input type="text" class="form-control" name="description" value="<%= model.description|| ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Facebook</label>
+							<input type="text" class="form-control" name="facebook" value="<%= model.facebook|| ''%>">
+						</div>
+
+						<div class="form-group col-md-3">
+							<label>Linkedin</label>
+							<input type="text" class="form-control" name="linkedin" value="<%= model.linkedin|| ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Skype</label>
+							<input type="text" class="form-control" name="skype" value="<%= model.skype|| ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Whatsapp</label>
+							<input type="text" class="form-control" name="whatsapp" value="<%= model.whatsapp|| ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Youtube</label>
+							<input type="text" class="form-control" name="youtube" value="<%= model.youtube|| ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>phone</label>
+							<input type="text" class="form-control" name="phone" value="<%= model.phone|| ''%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>phoneverified (yes/no/'')</label>
+							<input type="text" class="form-control" name="phoneverified" value="<%= model.phoneverified|| ''%>">
+						</div>
+			
+						<div class="form-group col-md-3">
+							<label>Password reset code</label>
+							<input type="text" class="form-control" name="passwordresetcode" value="<%= model.passwordresetcode|| ''%>">
+						</div>
+						
+						<div class="form-group col-md-3">
+							<label>Website</label>
+							<input type="text" class="form-control" name="website" value="<%= model.website|| ''%>">
+						</div>
+						
 
 
 						<div class="form-group col-md-3">
@@ -79,6 +151,16 @@
 						</div>
 
 						<div class="form-group col-md-3">
+							<label>businessbookmembershipexpirydate</label>
+							<input type="text" class="form-control" id="businessbookmembershipexpirydate" name="businessbookmembershipexpirydate" value="<%= model.businessbookmembershipexpirydate|| ''%>">
+						</div>
+
+						<div class="form-group col-md-3">
+							<label>businessbookcanrun  (yes/no/'')</label>
+							<input type="text" class="form-control" name="businessbookcanrun" value="<%= model.businessbookcanrun || ''%>">
+						</div>
+
+						<div class="form-group col-md-3">
 							<label>Sms Package</label>
 							<select class="form-control" name="smsplan">
 								<option value=""></option>
@@ -92,81 +174,28 @@
 								</option>
 							</select>
 						</div>
+
 						<div class="form-group col-md-3">
-							<label>Verified email</label>
-							<input type="text" class="form-control" name="emailverified" value="<%= model.emailverified%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>Address</label>
-							<input type="text" class="form-control" name="address" value="<%= model.address%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>City</label>
-							<input type="text" class="form-control" name="city" value="<%= model.city%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>Country</label>
-							<input type="text" class="form-control" name="country" value="<%= model.country%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>Currency</label>
-							<input type="text" class="form-control" name="currency" value="<%= model.currency%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>CNIC/Passport</label>
-							<input type="text" class="form-control" name="cnicpassport" value="<%= model.cnicpassport%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>Designation</label>
-							<input type="text" class="form-control" name="designation" value="<%= model.designation%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>Description</label>
-							<input type="text" class="form-control" name="description" value="<%= model.description%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>Facebook</label>
-							<input type="text" class="form-control" name="facebook" value="<%= model.facebook%>">
+							<label>smsplanbrandname</label>
+							<input type="text" class="form-control" name="smsplanbrandname" value="<%= model.smsplanbrandname|| ''%>">
 						</div>
 
 						<div class="form-group col-md-3">
-							<label>Linkedin</label>
-							<input type="text" class="form-control" name="linkedin" value="<%= model.linkedin%>">
+							<label>smsplanexpirydate</label>
+							<input type="text" class="form-control" id="smsplanexpirydate" name="smsplanexpirydate" value="<%= model.smsplanexpirydate|| ''%>">
 						</div>
+
 						<div class="form-group col-md-3">
-							<label>Skype</label>
-							<input type="text" class="form-control" name="skype" value="<%= model.skype%>">
+							<label>smsplansentsms</label>
+							<input type="text" class="form-control" name="smsplansentsms" value="<%= model.smsplansentsms|| ''%>">
 						</div>
-						<div class="form-group col-md-3">
-							<label>Whatsapp</label>
-							<input type="text" class="form-control" name="whatsapp" value="<%= model.whatsapp%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>Youtube</label>
-							<input type="text" class="form-control" name="youtube" value="<%= model.youtube%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>phone</label>
-							<input type="text" class="form-control" name="phone" value="<%= model.phone%>">
-						</div>
-						<div class="form-group col-md-3">
-							<label>verified phone</label>
-							<input type="text" class="form-control" name="phoneverified" value="<%= model.phoneverified%>">
-						</div>
-			
-						<div class="form-group col-md-3">
-							<label>Password reset code</label>
-							<input type="text" class="form-control" name="passwordresetcode" value="<%= model.passwordresetcode%>">
-						</div>
-						
-						<div class="form-group col-md-3">
-							<label>Website</label>
-							<input type="text" class="form-control" name="website" value="<%= model.website%>">
-						</div>
+
 						<div class="form-group col-md-3">
 							<label>Action</label>
 							<button type="submit" style="width: 100%;" class="btn btn-primary">Save</button>
 						</div>
+
+						
 
 				</div>
 				</form>
@@ -174,3 +203,9 @@
 		</div>
 	</div>
 </div>
+<script>
+	$("#businessbookmembershipexpirydate" ).datepicker({
+	});
+	$("#smsplanexpirydate").datepicker({
+	});
+</script>

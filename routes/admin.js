@@ -40,21 +40,27 @@ router.post("/userview", async (req, res, next) => {
   try {
     var user;
     var userid = req.body._id || "";
+    var reqbody = {...req.body};
+    if(reqbody.businessbookmembershipexpirydate==""){
+      delete reqbody.businessbookmembershipexpirydate;
+    }
+    if(reqbody.smsplanexpirydate==""){
+      delete reqbody.smsplanexpirydate;
+    }
+    console.log(reqbody);
     if (userid != "") {
       var updateobject = { ...req.body };
       delete updateobject._id;
       user = await model.findByIdAndUpdate(userid, updateobject, { new: true });
-      res.redirect('/admin/users');
     }
     else {
       var updateobject = { ...req.body };
       delete updateobject._id;
       user = await model.create(updateobject);
-
     }
-    var loggedinuser = await model.findById(req.user);
     res.redirect('/admin/users');
   } catch (ex) {
+    console.log(ex)
     res.redirect('/admin/users');
   }
 })
