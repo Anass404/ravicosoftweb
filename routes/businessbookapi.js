@@ -4,7 +4,7 @@ var router = express.Router();
 const model = require('../models/User');
 
 router.post("/updatelocalsetting", async (req, res) => {
-    var resp = { status: "failed", data: "canot proceed" };
+    var resp = { status: "failed", data: "cannot proceed" };
     try {
         var userid = req.body.userid;
         var resu;
@@ -52,8 +52,6 @@ router.post("/updateonlinesetting", async (req, res) => {
 });
 
 router.post("/smsfrombusinessbook", async (req, res) => {
-    
-    
     try
     {
         reqbody ={...req.body};

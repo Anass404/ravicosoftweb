@@ -1,38 +1,52 @@
 const mongoose = require('mongoose');
-const user = mongoose.Schema({
-    activestatus:{type:String,required:false,default:'active'}, //active,deactive
-    createddate:{type:Date,required:false,default:new Date()},
-    designation:{type:String,required:false},
-    description:{type:String,required:false},
-    email:{type:String,required:false},
-    emailsecondary:{type:String,required:false},
-    fullname:{type:String,required:false},
-    facebook:{type:String,required:false},
-    lastlogindate:{type:Date,required:false,default:new Date()},
-    image:{type:String,required:false},
-    linkedin:{type:String,required:false},
-    phone:{type:String,required:false},
-    phonesecondary:{type:String,required:false},
-    password:{type:String,required:true},
-    profileimage:{type:String,required:false},
-    role:{type:String,required:false},
-    skype:{type:String,required:false},
-    twitter:{type:String,required:false},
-    username:{type:String,required:true},
-    website:{type:String,required:false},
-    whatsapp:{type:String,required:false},
-    youtube:{type:String,required:false},
+const validator = require('mongoose-unique-validator');
 
+const user = mongoose.Schema({
+    activestatus:{type:String,default:'active'}, //active,deactive
+    address:{type:String},
+    addresses:[{type:String}], //new added
+    createddate:{type:Date,default:new Date()},
+    city:{type:String}, //new added
+    country:{type:String}, //new added
+    currency:String,
+    cnicpassport:String, // new added
+    designation:{type:String},
+    description:{type:String},
+    email:{type:String},
+    emails:[{type:String}], // new added
+    emailverified:String, // new added
+    fullname:{type:String},
+    facebook:{type:String},
+    lastlogindate:{type:Date,default:new Date()},
+    loginhistory:[{}],
+    image:{type:String},
+    linkedin:{type:String},
+    parent:{type:mongoose.Schema.Types.ObjectId,ref:"user",default:null},
+    phone:{type:String},
+    phones:[{type:String}],// new added
+    phoneverified:String, // new added
+    password:{type:String,required:true},
+    passwordresetcode:String, // new added
+    role:{type:String},
+    skype:{type:String},
+    state:String,// new added
+    subparent:{type:mongoose.Schema.Types.ObjectId,ref:"user",default:null},// new added
+    twitter:{type:String},
+    username:{type:String,required:true,unique:true,default:Date.now().toString()},
+    website:{type:String},
+    whatsapp:{type:String},
+    youtube:{type:String},
 
     //business book fields
-    businessbookmembershipplan:{type:String}, // values are Package 1,Package 2,Package 3
+    businessbookmembershipplan:{type:String}, // values are '',undefined,Package 1,Package 2,Package 3,Package 4
     businessbookmembershipexpirydate:Date,
-    businessbookcanrun:{type:Boolean,default:true},
+    businessbookcanrun:{type:String,default:"yes"},
     //sms plan fields
-    smsplan:{type:String},  // values are none,Package 1,Package 2,Package 3,Package 4
+    smsplan:{type:String},  // values are '',undefined,Package 1,Package 2,Package 3,Package 4
     smsplanbrandname:{type:String},
     smsplanexpirydate:Date,
     smsplansentsms:{type:String},
 })
-mongoose.models = {}
+
+user.plugin(validator)
 module.exports = mongoose.model('user',user,'user');

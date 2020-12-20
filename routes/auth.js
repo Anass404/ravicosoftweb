@@ -8,7 +8,6 @@ router.post('/signin', async (req, res) => {
   var username = body.username;
   var password = body.password;
   var user = await model.findOne({ username: username, password: password, activestatus: { $in: [null, undefined, "active"] } });
-
   if (user) {
     res.cookie('userid', user._id);
     res.cookie('userrole', user.role);
@@ -20,12 +19,11 @@ router.post('/signin', async (req, res) => {
     }
   }
   else {
-    console.log('user not loggedin')
     return res.redirect('/home/index');
   }
 });
 
-router.post('/signout', async (req, res) => {
+router.get('/signout', async (req, res) => {
   res.clearCookie('userid')
   res.clearCookie('userrole')
   return res.redirect('/home/index');

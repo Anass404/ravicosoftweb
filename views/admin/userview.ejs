@@ -1,18 +1,8 @@
 <% layout('./layout') -%>
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 	<div class="row">
-		<ol class="breadcrumb">
-			<li><a href="#">
-					<em class="fa fa-home"></em>
-				</a></li>
-			<li class="active">Dashboard</li>
-		</ol>
-	</div>
-	<!--/.row-->
-
-	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Create User</h1>
+			<h1 class="page-header">Create/Edit User</h1>
 		</div>
 	</div>
 
@@ -22,64 +12,161 @@
 				<div class="panel-body">
 					<form method="post" id="userform">
 						<input type="hidden" name="_id" value="<%= model._id%>">
-						<div class="form-group col-md-6">
-							<label>Full Name</label>
-							<input type="text"  required  placeholder="Full Name" class="form-control" name="fullname"
-								value="<%= model.fullname %>">
-						</div>
-						<div class="form-group col-md-6">
-							<label>User Name</label>
 
-							<input type="text"  required placeholder="User Name" class="form-control" name="username"
-								value="<%= model.username %>">
+						<div class="form-group col-md-3">
+							<label>User Name</label>
+							<input type="text" class="form-control" name="username" value="<%= model.username %>">
 						</div>
-						<div class="form-group col-md-6">
-							<label>Email</label>
-							<input type="email "required  placeholder="Email" class="form-control" name="email"
-								value="<%= model.email%>">
-						</div>
-						<div class="form-group col-md-6">
+
+						<div class="form-group col-md-3">
 							<label>Password</label>
-							<input type="password   "  required placeholder="Password" class="form-control" name="password"
-								value="<%= model.password %>">
+							<input type="text" required class="form-control" name="password" value="<%= model.password %>">
 						</div>
-						<div class="form-group col-md-4">
-							<label>BusinessBook Package</label>
-							<select name="businessbookmembershipplan" required class="form-control">
-								<option value="">package</option>
-								<option value="package_1"
-									<%= (model.businessbookmembershipplan=="package_1")? 'selected':'' %>>Package 1
-								</option>
-								<option value="package_2"
-									<%= (model.businessbookmembershipplan=="package_2")? 'selected':'' %>>Package 2
-								</option>
-								<option value="package_3"
-									<%= (model.businessbookmembershipplan=="package_3")? 'selected':'' %>>Package 3
-								</option>
-							</select>
-						</div>
-						<div class="form-group col-md-4">
-							<label>Sms Package</label>
-							<select class="form-control" name="smsplan" required>
-								<option value="">SMS</option>
-								<option value="none" <%= (model.smsplan=="none")? 'selected':'' %>>None</option>
-								<option value="package1" <%= (model.smsplan=="package1")? 'selected':'' %>>Package 1
-								</option>
-								<option value="package2" <%= (model.smsplan=="package2")? 'selected':'' %>>Package 2
-								</option>
-								<option value="package3" <%= (model.smsplan=="package3")? 'selected':'' %>>package 3
-								</option>	
-							</select>
-						</div>
-						<div class="form-group col-md-4">
+
+						<div class="form-group col-md-3">
 							<label>Role</label>
 							<select class="form-control" name="role" required>
-								<option value="">Role</option>
 								<option value="admin" <%= (model.role=="admin")? 'selected':'' %>>Admin</option>
 								<option value="user" <%= (model.role=="user")? 'selected':'' %>>User</option>
 							</select>
 						</div>
-						<button type="submit" class="btn btn-primary">Save</button>
+
+						<div class="form-group col-md-3">
+							<label>Active Status</label>
+							<select class="form-control" name="activestatus" required>
+								<option value="active" <%= (model.activestatus=="active")? 'selected':'' %>>active</option>
+								<option value="deactive" <%= (model.activestatus=="deactive")? 'selected':'' %>>deactive
+								</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label>createddate</label>
+							<input type="text" class="form-control" name="createddate" value="<%= model.createddate %>">
+						</div>
+
+						<div class="form-group col-md-3">
+							<label>Full Name</label>
+							<input type="text" class="form-control" name="fullname" value="<%= model.fullname %>">
+						</div>
+
+						<div class="form-group col-md-3">
+							<label>Email</label>
+							<input type="email" class="form-control" name="email" value="<%= model.email%>">
+						</div>
+
+
+
+
+
+						<div class="form-group col-md-3">
+							<label>BusinessBook Package</label>
+							<select name="businessbookmembershipplan" class="form-control">
+								<option value=""></option>
+								<option value="Package 1" <%= (model.businessbookmembershipplan=="Package 1")? 'selected':'' %>>
+									Package 1
+								</option>
+								<option value="Package 2" <%= (model.businessbookmembershipplan=="Package 2")? 'selected':'' %>>
+									Package 2
+								</option>
+								<option value="Package 3" <%= (model.businessbookmembershipplan=="Package 3")? 'selected':'' %>>
+									Package 3
+								</option>
+								<option value="Package 4" <%= (model.businessbookmembershipplan=="Package 4")? 'selected':'' %>>
+									Package 4
+								</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-3">
+							<label>Sms Package</label>
+							<select class="form-control" name="smsplan">
+								<option value=""></option>
+								<option value="Package 1" <%= (model.smsplan=="Package 1")? 'selected':'' %>>Package 1
+								</option>
+								<option value="Package 2" <%= (model.smsplan=="Package 2")? 'selected':'' %>>Package 2
+								</option>
+								<option value="Package 3" <%= (model.smsplan=="Package 3")? 'selected':'' %>>Package 3
+								</option>
+								<option value="Package 4" <%= (model.smsplan=="Package 4")? 'selected':'' %>>Package 4
+								</option>
+							</select>
+						</div>
+						<div class="form-group col-md-3">
+							<label>Verified email</label>
+							<input type="text" class="form-control" name="emailverified" value="<%= model.emailverified%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Address</label>
+							<input type="text" class="form-control" name="address" value="<%= model.address%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>City</label>
+							<input type="text" class="form-control" name="city" value="<%= model.city%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Country</label>
+							<input type="text" class="form-control" name="country" value="<%= model.country%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Currency</label>
+							<input type="text" class="form-control" name="currency" value="<%= model.currency%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>CNIC/Passport</label>
+							<input type="text" class="form-control" name="cnicpassport" value="<%= model.cnicpassport%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Designation</label>
+							<input type="text" class="form-control" name="designation" value="<%= model.designation%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Description</label>
+							<input type="text" class="form-control" name="description" value="<%= model.description%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Facebook</label>
+							<input type="text" class="form-control" name="facebook" value="<%= model.facebook%>">
+						</div>
+
+						<div class="form-group col-md-3">
+							<label>Linkedin</label>
+							<input type="text" class="form-control" name="linkedin" value="<%= model.linkedin%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Skype</label>
+							<input type="text" class="form-control" name="skype" value="<%= model.skype%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Whatsapp</label>
+							<input type="text" class="form-control" name="whatsapp" value="<%= model.whatsapp%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Youtube</label>
+							<input type="text" class="form-control" name="youtube" value="<%= model.youtube%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>phone</label>
+							<input type="text" class="form-control" name="phone" value="<%= model.phone%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>verified phone</label>
+							<input type="text" class="form-control" name="phoneverified" value="<%= model.phoneverified%>">
+						</div>
+			
+						<div class="form-group col-md-3">
+							<label>Password reset code</label>
+							<input type="text" class="form-control" name="passwordresetcode" value="<%= model.passwordresetcode%>">
+						</div>
+						
+						<div class="form-group col-md-3">
+							<label>Website</label>
+							<input type="text" class="form-control" name="website" value="<%= model.website%>">
+						</div>
+						<div class="form-group col-md-3">
+							<label>Action</label>
+							<button type="submit" style="width: 100%;" class="btn btn-primary">Save</button>
+						</div>
 
 				</div>
 				</form>
@@ -87,43 +174,3 @@
 		</div>
 	</div>
 </div>
-
-
-
-<!-- OLD FORM -->
-<!--/.row-->
-<!-- <div class="row">
-	<form method="post" id="userform">
-		<input type="hidden" name="_id" value="<%= model._id%>">
-		<input type="text" placeholder="Full Name" name="fullname" value="<%= model.fullname %>">
-		<input type="text" placeholder="User Name" name="username" value="<%= model.username %>">
-		<input type="text" placeholder="Password" name="password" value="<%= model.password %>">
-		<input type="email" placeholder="Email" name="email" value="<%= model.email%>">
-
-		<select name="businessbookmembershipplan" required>
-			<option value="">package</option>
-			<option value="package_1" <%= (model.businessbookmembershipplan=="Package1")? 'selected':'' %>>package 1
-			</option>
-			<option value="package_2" <%= (model.businessbookmembershipplan=="Package2")? 'selected':'' %>>package 2
-			</option>
-			<option value="package_3" <%= (model.businessbookmembershipplan=="Package3")? 'selected':'' %>>package 3
-			</option>
-		</select>
-
-		<select name="smsplan" required>
-			<option value="">SMS</option>
-			<option value="smsplan1" <%= (model.smsplan=="smsplan1")? 'selected':'' %>>Package 1</option>
-			<option value="smsplan2" <%= (model.smsplan=="smsplan2")? 'selected':'' %>>Package 2</option>
-			<option value="smsplan3" <%= (model.smsplan=="smsplan3")? 'selected':'' %>>package 3</option>
-			<option value="none" <%= (model.smspackage=="none")? 'selected':'' %>>None</option>
-
-		</select>
-
-		<select name="role" required>
-			<option value="">Role</option>
-			<option value="admin" <%= (model.role=="admin")? 'selected':'' %>>admin</option>
-			<option value="user" <%= (model.role=="user")? 'selected':'' %>>user</option>
-		</select>
-		<button type="submit">Save</button>
-	</form>
-</div> -->

@@ -45,21 +45,21 @@ app.use((req, res, next) => {
 app.use(express.static("public"));
 
 
-//dbsetting();
+dbsetting();
 async function dbsetting() {
-  await user.remove({});
+  //await user.remove({});
   var adminuser  = await user.findOne({username: 'admin',role: 'admin'});
   if(!adminuser){
     await user.create({
       activestatus: 'active',
-      createdDate: Date.now(),
+      createdDate: new Date(),
       designation: 'web admin',
       description:"I am web admin",
       email: "admin@admin.com",
       emailsecondary: "admin2@admin.com",
       fullname: 'web admin',
       facebook: 'facebook',
-      lastlogindate: Date.now(),
+      lastlogindate: new Date(),
       linkedin: "linkedin",
       phone: '03024759550',
       phonesecondary: 'phonesecondary',
@@ -69,8 +69,8 @@ async function dbsetting() {
       skype: 'skype',
       twitter: 'twitter',
       username: 'admin',
-      website: 'www.agencywebsite.com',
-      whatsapp: '123456',
+      website: 'www.ravicosoft.com',
+      whatsapp: '+923024759550',
       youtube: 'youtube',
     })
   }
