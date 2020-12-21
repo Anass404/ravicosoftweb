@@ -52,26 +52,20 @@ async function dbsetting() {
   if(!adminuser){
     await user.create({
       activestatus: 'active',
-      createdDate: new Date(),
-      designation: 'web admin',
-      description:"I am web admin",
-      email: "admin@admin.com",
-      emailsecondary: "admin2@admin.com",
-      fullname: 'web admin',
-      facebook: 'facebook',
-      lastlogindate: new Date(),
-      linkedin: "linkedin",
-      phone: '03024759550',
-      phonesecondary: 'phonesecondary',
       password: "admin@123",
       profileimage: "/uploads/defaultprofileimage.png",
       role: 'admin',
-      skype: 'skype',
-      twitter: 'twitter',
       username: 'admin',
-      website: 'www.ravicosoft.com',
-      whatsapp: '+923024759550',
-      youtube: 'youtube',
+    })
+  }
+  var testuser  = await user.findOne({username: 'testuser',role: 'user'});
+  if(!testuser){
+    await user.create({
+      activestatus: 'active',
+      password: "admin@123",
+      profileimage: "/uploads/defaultprofileimage.png",
+      role: 'user',
+      username: 'testuser',
     })
   }
 }
