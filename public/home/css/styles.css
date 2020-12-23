@@ -780,6 +780,7 @@ a.label:hover, a.label:focus {
     overflow-y: auto; }
 
   .navbar-header {
+    position: fixed;
     width: 100%; } }
 .sidebar ul.nav a:hover, .sidebar ul.nav li.parent ul li a:hover {
   text-decoration: none;
@@ -1029,3 +1030,6 @@ p.back-link {
   margin-bottom: 20px;
   font-size: 12px;
   text-transform: uppercase; }
+  .card{
+    width: 25rem;
+}

@@ -42,6 +42,9 @@ Table of Content:
 
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
+.color-white{
+  color: white !important;
+}
 ul {
   list-style: none;
   margin: 0px;
@@ -113,6 +116,9 @@ i:before {
 
 /* Main title css
 ============================================================================================ */
+.navbar-main-z-index{
+  z-index: 1000000;
+}
 .c_title {
   text-align: center;
   padding-bottom: 19px;
@@ -173,6 +179,16 @@ i:before {
 /*----------------------------------------------------*/
 /* Main Menu Area css
 ============================================================================================ */
+.navbar-nav{
+  margin-left: auto;
+}
+.nav-item{
+  padding-left: 30px;
+  color: white;
+}
+.nav-link{
+  color: white;
+}
 .main_menu_area {
   position: absolute;
   left: 0px;
@@ -336,7 +352,7 @@ i:before {
 ============================================================================================ */
 .banner_area {
   position: relative;
-  z-index: 3;
+  z-index: 1000000;
   overflow: hidden;
   margin-bottom: 4em;
 }

@@ -44,10 +44,9 @@ app.use((req, res, next) => {
 });
 app.use(express.static("public"));
 
-
-dbsetting();
+//  dbsetting();
 async function dbsetting() {
-  //await user.remove({});
+  await user.remove({});
   var adminuser  = await user.findOne({username: 'admin',role: 'admin'});
   if(!adminuser){
     await user.create({
