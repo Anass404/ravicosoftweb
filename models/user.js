@@ -38,9 +38,9 @@ const user = mongoose.Schema({
     youtube:{type:String},
 
     //business book fields
-    businessbookmembershipplan:{type:String}, // values are '',undefined,Package 1,Package 2,Package 3,Package 4
+    businessbookmembershipplan:{type:String}, // values are '',undefined,Package 1,Package 2,Package 3,Package 4 ('',undefined) are equal to Package 1
     businessbookmembershipexpirydate:Date,
-    businessbookcanrun:{type:String,default:"yes"},
+    businessbookcanrun:{type:String,default:"yes"}, // values are '',undefined,yes,no  (if no then it can not run) in all other cases it can run
     //sms plan fields
     smsplan:{type:String},  // values are '',undefined,Package 1,Package 2,Package 3,Package 4
     smsplanbrandname:{type:String},

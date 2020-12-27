@@ -4,6 +4,7 @@ var router = express.Router();
 const model = require('../models/User');
 
 router.post("/updatelocalsetting", async (req, res) => {
+    console.log('updatelocalsetting')
     var resp = { status: "failed", data: "cannot proceed" };
     try {
         var userid = req.body.userid;
@@ -13,17 +14,26 @@ router.post("/updatelocalsetting", async (req, res) => {
         }
         else {
             var o = {
+                activestatus: 'active',
                 createddate: new Date(),
                 username: Date.now().toString(),
                 password: Date.now().toString(),
                 businessbookmembershipplan:"Package 1",
-                businessbookcanrun:true,
-                smsplan:"none",
+                businessbookcanrun:'yes',
                 role:'user',
             }
             resu = await model.create(o);
         }
         if (resu) {
+            resu = JSON.parse(JSON.stringify(resu));
+            if(resu.businessbookmembershipplan==undefined||resu.businessbookmembershipplan==""){
+                resu.businessbookmembershipplan = "Package 1"
+            }
+
+            if(resu.smsplan==undefined||resu.smsplan==""){
+                resu.smsplan = ""
+            }
+            console.log(resu)
             resp.status = "success";
             resp.data = resu
         }
