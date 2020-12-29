@@ -202,10 +202,40 @@
 			</div>
 		</div>
 	</div>
+	<%if(model._id){%>
+	<div class="row">
+		<div class="col-lg-12">
+			<strong>User Login History</strong>
+			<p class="badge badge-secondary" style="cursor: pointer;" onclick="deleteloginhistory()">Delete Login History</p>
+			<div id="json-renderer-dataindex"></div>
+		</div>
+	</div>
+	<%}%>
 </div>
 <script>
 	$("#businessbookmembershipexpirydate" ).datepicker({
 	});
 	$("#smsplanexpirydate").datepicker({
 	});
+
+	
+	<%if(model._id){%>
+		var userid= "<%-model._id %>";
+		var dataindex = <%- JSON.stringify(model.loginhistory)%>;
+		$('#json-renderer-dataindex').jsonViewer(dataindex);
+
+		function deleteloginhistory(){
+			$.ajax({
+				url:'/admin/userviewdeleteloginhistory',
+				type:'post',
+				data:{userid:userid},
+				success:(d)=>{
+					window.location.reload()
+				},
+				error:(d)=>{
+					window.location.reload()
+				}
+			})
+		}
+	<%}%>
 </script>

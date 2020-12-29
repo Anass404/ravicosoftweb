@@ -18,7 +18,7 @@ const user = mongoose.Schema({
     fullname:{type:String},
     facebook:{type:String},
     lastlogindate:{type:Date,default:new Date()},
-    loginhistory:[{}],
+    loginhistory:[mongoose.Schema.Types.Mixed],
     image:{type:String},
     linkedin:{type:String},
     parent:{type:mongoose.Schema.Types.ObjectId,ref:"user",default:null},

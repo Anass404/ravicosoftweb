@@ -73,7 +73,7 @@ app.use('/auth', auth);
 app.use('/admin', admin);
 app.use('/home', home);
 app.use('/user', userroute);
-app.use('/businessbookapi', businessbookapi);
+app.use('/api/businessbookapi', businessbookapi);
 
 app.get('/', (req, res) => {
   res.redirect("/home/index")

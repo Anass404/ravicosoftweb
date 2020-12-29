@@ -27,6 +27,9 @@ router.get('/businessbook', (req, res) => {
 router.get('/sms', (req, res) => {
   res.render('./home/sms.ejs')
 });
+router.get('/corporate-branded-sms', (req, res) => {
+  res.render('./home/sms.ejs')
+});
 router.get("/notfound", async (req, res, next) => {
   res.render('./home/notfound.ejs')
 })

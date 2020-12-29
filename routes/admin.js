@@ -47,7 +47,6 @@ router.post("/userview", async (req, res, next) => {
     if(reqbody.smsplanexpirydate==""){
       delete reqbody.smsplanexpirydate;
     }
-    console.log(reqbody);
     if (userid != "") {
       var updateobject = { ...req.body };
       delete updateobject._id;
@@ -64,6 +63,25 @@ router.post("/userview", async (req, res, next) => {
     res.redirect('/admin/users');
   }
 })
+
+router.post("/userviewdeleteloginhistory", async (req, res, next) => {
+  try {
+    var userid = req.body.userid || "";
+    if (userid != "") {
+      model.findByIdAndUpdate(userid,{loginhistory:[]}).then()
+    }
+    res.send({status:"success"})
+  } catch (ex) {
+    res.redirect('/admin/users');
+  }
+})
+
+
+router.get("/test1", async (req, res, next) => {
+  var userip = req.headers['cf-connecting-ip'];
+  res.send({userip:userip})
+})
+
 
 
 module.exports = router;
