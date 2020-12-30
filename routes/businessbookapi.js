@@ -11,7 +11,7 @@ router.post("/updatelocalsetting", async (req, res) => {
         var resu;
         if (userid) {
             resu = await model.findById(userid);
-            if(resu==null){
+            if (resu == null) {
                 var o = {
                     activestatus: 'active',
                     createddate: new Date(),
@@ -21,7 +21,7 @@ router.post("/updatelocalsetting", async (req, res) => {
                     businessbookcanrun: 'yes',
                     role: 'user',
                 }
-                resu = await model.create(o);    
+                resu = await model.create(o);
             }
         }
         else {
@@ -50,7 +50,7 @@ router.post("/updatelocalsetting", async (req, res) => {
             resp.data = resu;
 
             //update lastlogindate, loginhistory array
-            updateuserloginhistory(resu._id,req)
+            updateuserloginhistory(resu._id, req)
 
         }
     } catch (ex) {
@@ -63,19 +63,74 @@ router.post("/updateonlinesetting", async (req, res) => {
     var resp = { status: "failed", data: "cannot proceed" };
     try {
         var reqbody = { ...req.body };
-        console.log(reqbody);
         var userid = reqbody.userid;
-        delete reqbody.userid;
-        var resu = await model.findByIdAndUpdate(userid, reqbody);
-        if (resu) {
-            resp.status = "success";
-            resp.data = resu
+        if (userid == undefined || userid == "") {
+            resp.data = "userid not found"
+        } else {
+            delete reqbody.userid;
+            var resu = await model.findByIdAndUpdate(userid, reqbody);
+            if (resu) {
+                resp.status = "success";
+                resp.data = resu
+            }
+            else {
+                resp.data = "user not found"
+            }
         }
     } catch (ex) {
         resp.ex = ex.message;
     }
     res.send(resp);
 });
+
+
+router.post("/changeaccount", async (req, res) => {
+    var resp = { status: "failed", data: "cannot proceed" };
+    try {
+        var reqbody = { ...req.body };
+        var userid = reqbody.userid;
+        var changeaccountusername = reqbody.changeaccountusername;
+        var changeaccountuserpassword = reqbody.changeaccountuserpassword;
+        if (
+            userid == undefined || userid == "" ||
+            changeaccountusername == undefined || changeaccountusername == "" ||
+            changeaccountuserpassword == undefined || changeaccountuserpassword == ""
+        ) {
+            resp.data = "userid or changeaccountusername or changeaccountuserpassword not found"
+        } else {
+            delete reqbody.userid;
+            var olduser = await model.findById(userid);
+            if (!olduser) {
+                resp.data = "old user not found"
+            }
+            else {
+                var newuser = await model.findOne({'username':changeaccountusername,'password':changeaccountuserpassword});
+                if (!newuser) {
+                    resp.data = "new user not found"
+                }
+                else {
+                    newuser = JSON.parse(JSON.stringify(newuser));
+                    if (newuser.businessbookmembershipplan == undefined || newuser.businessbookmembershipplan == "") {
+                        newuser.businessbookmembershipplan = "Package 1"
+                    }
+
+                    if (newuser.smsplan == undefined || resu.smsplan == "") {
+                        newuser.smsplan = ""
+                    }
+                    resp.status = "success"
+                    resp.data = newuser;
+                }
+
+            }
+        }
+    } catch (ex) {
+        resp.data = "Error while executing code";
+        resp.ex = ex.message;
+    }
+    res.send(resp);
+});
+
+
 
 router.post("/smsfrombusinessbook", async (req, res) => {
     try {
@@ -93,7 +148,7 @@ router.post("/smsfrombusinessbook", async (req, res) => {
 
 });
 
-async function updateuserloginhistory(userid,req){
+async function updateuserloginhistory(userid, req) {
     try {
         var userip = req.headers['cf-connecting-ip'];
         model.findByIdAndUpdate(userid, { lastlogindate: new Date(), $push: { loginhistory: userip } }).then();
