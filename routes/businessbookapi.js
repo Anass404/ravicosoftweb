@@ -4,7 +4,6 @@ var router = express.Router();
 const model = require('../models/User');
 
 router.post("/updatelocalsetting", async (req, res) => {
-    console.log('updatelocalsetting')
     var resp = { status: "failed", data: "cannot proceed" };
     try {
         var userid = req.body.userid;
@@ -45,7 +44,6 @@ router.post("/updatelocalsetting", async (req, res) => {
             if (resu.smsplan == undefined || resu.smsplan == "") {
                 resu.smsplan = ""
             }
-            console.log(resu)
             resp.status = "success";
             resp.data = resu;
 
