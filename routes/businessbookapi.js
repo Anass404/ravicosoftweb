@@ -57,30 +57,6 @@ router.post("/updatelocalsetting", async (req, res) => {
     res.send(resp);
 });
 
-router.post("/updateonlinesetting", async (req, res) => {
-    var resp = { status: "failed", data: "cannot proceed" };
-    try {
-        var reqbody = { ...req.body };
-        var userid = reqbody.userid;
-        if (userid == undefined || userid == "") {
-            resp.data = "userid not found"
-        } else {
-            delete reqbody.userid;
-            var resu = await model.findByIdAndUpdate(userid, reqbody);
-            if (resu) {
-                resp.status = "success";
-                resp.data = resu
-            }
-            else {
-                resp.data = "user not found"
-            }
-        }
-    } catch (ex) {
-        resp.ex = ex.message;
-    }
-    res.send(resp);
-});
-
 
 router.post("/changeaccount", async (req, res) => {
     var resp = { status: "failed", data: "cannot proceed" };
@@ -129,7 +105,6 @@ router.post("/changeaccount", async (req, res) => {
 });
 
 
-
 router.post("/smsfrombusinessbook", async (req, res) => {
     try {
         reqbody = { ...req.body };
@@ -139,7 +114,6 @@ router.post("/smsfrombusinessbook", async (req, res) => {
         else {
             res.json({ status: "success", data: "message send" });
         }
-
     } catch (ex) {
         res.json({ status: "failed", data: "sms not send", ex: ex.message })
     }
