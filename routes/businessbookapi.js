@@ -107,7 +107,8 @@ router.post("/changeaccount", async (req, res) => {
 
 router.post("/smsfrombusinessbook", async (req, res) => {
     try {
-        reqbody = { ...req.body };
+        var reqbody = { ...req.body };
+        console.log(reqbody);
         if (reqbody.userid == undefined || reqbody.userid == '') {
             res.json({ status: "failed", data: "user not valid" });
         }
