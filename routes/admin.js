@@ -41,9 +41,6 @@ router.post("/userview", async (req, res, next) => {
     var user;
     var userid = req.body._id || "";
     var reqbody = {...req.body};
-    if(reqbody.businessbookmembershipexpirydate==""){
-      delete reqbody.businessbookmembershipexpirydate;
-    }
     if(reqbody.smsplanexpirydate==""){
       delete reqbody.smsplanexpirydate;
     }

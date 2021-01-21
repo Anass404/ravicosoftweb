@@ -17,7 +17,6 @@ router.post("/updatelocalsetting", async (req, res) => {
                     username: Date.now().toString(),
                     password: Date.now().toString(),
                     businessbookmembershipplan: "Package 1",
-                    businessbookcanrun: 'yes',
                     role: 'user',
                 }
                 resu = await model.create(o);
@@ -30,7 +29,6 @@ router.post("/updatelocalsetting", async (req, res) => {
                 username: Date.now().toString(),
                 password: Date.now().toString(),
                 businessbookmembershipplan: "Package 1",
-                businessbookcanrun: 'yes',
                 role: 'user',
             }
             resu = await model.create(o);
